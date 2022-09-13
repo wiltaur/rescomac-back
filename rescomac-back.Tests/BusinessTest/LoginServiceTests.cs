@@ -4,7 +4,7 @@ using Moq;
 using rescomac_back.business.Implement;
 using rescomac_back.repository.Context;
 using rescomac_back.repository.Model;
-using rescomac_back.Test.MockDbContext;
+using rescomac_back.Tests.MockDbContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +12,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace rescomac_back.Test.BusinessTest
+namespace rescomac_back.Tests.BusinessTest
 {
-    public class LoginServiceTest : RescomacDbContextMock
+    public class LoginServiceTests : RescomacDbContextMock
     {
         private LoginService _currentService;
         private readonly RescomacDbContext _context;
 
         private Fixture _autodata;
 
-        public LoginServiceTest()
+        public LoginServiceTests()
         {
             _autodata = new Fixture();
             _autodata.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
