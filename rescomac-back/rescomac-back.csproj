@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\rescomac-back.business\rescomac-back.business.csproj" />
     <ProjectReference Include="..\rescomac-back.repository\rescomac-back.repository.csproj" />
   </ItemGroup>
 

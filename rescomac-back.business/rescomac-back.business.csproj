@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implement\" />
-    <Folder Include="Interface\" />
+    <ProjectReference Include="..\rescomac-back.repository\rescomac-back.repository.csproj" />
   </ItemGroup>
 
 </Project>
