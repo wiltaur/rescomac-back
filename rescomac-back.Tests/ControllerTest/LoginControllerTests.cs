@@ -9,15 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace rescomac_back.Test.ControllerTest
+namespace rescomac_back.Tests.ControllerTest
 {
-    public class LoginControllerTest
+    public class LoginControllerTests
     {
         private LoginController _currentController;
         private readonly Mock<ILoginService> _loginService = new();
 
 
-        public LoginControllerTest()
+        public LoginControllerTests()
         {
             _currentController = new LoginController(_loginService.Object);
         }

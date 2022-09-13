@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Moq;
 using rescomac_back.repository.Context;
 
-namespace rescomac_back.Test.MockDbContext
+namespace rescomac_back.Tests.MockDbContext
 {
     public class RescomacDbContextMock
     {

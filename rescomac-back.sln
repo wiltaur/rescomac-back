@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rescomac-back.business", "r
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rescomac-back.repository", "rescomac-back.repository\rescomac-back.repository.csproj", "{A8D4C9B8-E689-40E5-8ED9-E64544C0420E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rescomac-back.Test", "rescomac-back.Test\rescomac-back.Test.csproj", "{4588C979-49F8-4412-BB8E-425BECEAD3F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rescomac-back.Tests", "rescomac-back.Tests\rescomac-back.Tests.csproj", "{4588C979-49F8-4412-BB8E-425BECEAD3F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
