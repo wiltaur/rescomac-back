@@ -1,4 +1,4 @@
-using rescomac_back.repository;
+using rescomac_back;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -93,6 +93,8 @@ namespace rescomac_back.repository.Context
                     .HasMaxLength(50)
                     .HasColumnName("correo");
 
+                entity.Property(e => e.Contresena).HasMaxLength(50);
+
                 entity.Property(e => e.Nombre).HasMaxLength(50);
 
                 entity.HasOne(d => d.IdRolNavigation)

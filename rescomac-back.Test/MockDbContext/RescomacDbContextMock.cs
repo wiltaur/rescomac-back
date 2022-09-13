@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EntityFrameworkCore.Testing.Moq.Helpers;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 using rescomac_back.repository.Context;
 
@@ -6,15 +7,22 @@ namespace rescomac_back.Test.MockDbContext
 {
     public class RescomacDbContextMock
     {
-        public static Mock<RescomacDbContext> GetDbContext()
+        protected RescomacDbContext GetDbContext()
         {
             var dbName = Guid.NewGuid().ToString();
-            var dbOptions = new DbContextOptionsBuilder<RescomacDbContext>()
-                        .UseInMemoryDatabase(dbName)
-                        .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-                        .EnableSensitiveDataLogging(true)
-                        .Options;
-            return new Mock<RescomacDbContext>(dbOptions);
+            var opciones = new DbContextOptionsBuilder<RescomacDbContext>()
+                .UseInMemoryDatabase(dbName)
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+                .EnableSensitiveDataLogging(true)
+                .Options;
+
+            var dbContextToMock = new RescomacDbContext(opciones);
+            var mockedDbContext = new MockedDbContextBuilder<RescomacDbContext>()
+                .UseDbContext(dbContextToMock)
+                .UseConstructorWithParameters(opciones)
+                .MockedDbContext;
+
+            return mockedDbContext;
         }
 
         public static DbSet<T> GetQueryableMockDbSet<T>(params T[] sourceList) where T : class
