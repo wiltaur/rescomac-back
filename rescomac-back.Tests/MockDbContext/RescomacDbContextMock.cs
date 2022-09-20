@@ -25,6 +25,17 @@ namespace rescomac_back.Tests.MockDbContext
             return mockedDbContext;
         }
 
+        public static Mock<RescomacDbContext> GetDbContextMock()
+        {
+            var dbName = Guid.NewGuid().ToString();
+            var dbOptions = new DbContextOptionsBuilder<RescomacDbContext>()
+                        .UseInMemoryDatabase(dbName)
+                        .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+                        .EnableSensitiveDataLogging(true)
+                        .Options;
+            return new Mock<RescomacDbContext>(dbOptions);
+        }
+
         public static DbSet<T> GetQueryableMockDbSet<T>(params T[] sourceList) where T : class
         {
             return GetMockDbSet(sourceList).Object;

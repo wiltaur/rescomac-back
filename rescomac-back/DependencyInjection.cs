@@ -23,6 +23,7 @@ namespace rescomac_back
                options.UseSqlServer(defaultConnectionString));
 
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IPropietarioService, PropietarioService>();
 
             var serviceProvider = services.BuildServiceProvider();
             try
