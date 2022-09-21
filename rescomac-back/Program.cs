@@ -22,6 +22,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("MyCorsImplementation");
+
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,13 +1,13 @@
-﻿namespace rescomac_back.repository.Model
-{
-    public partial class Propiedad
-    {
-        public Propiedad()
-        {
-            Vehiculos = new HashSet<Vehiculo>();
-        }
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-        public int Id { get; set; }
+namespace rescomac_back.repository.Dto
+{
+    public partial class PropiedadRequest
+    {
         public string Nombre { get; set; } = null!;
         public string Apellido { get; set; } = null!;
         public int Identificacion { get; set; }
@@ -16,7 +16,5 @@
         public string Torre { get; set; } = null!;
         public string Apto { get; set; } = null!;
         public bool EstadoPago { get; set; }
-
-        public virtual ICollection<Vehiculo> Vehiculos { get; set; }
     }
 }
