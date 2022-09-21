@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using rescomac_back.business.Interface;
 using rescomac_back.repository.Dto;
 using System.Net;
@@ -8,6 +9,7 @@ namespace rescomac_back.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyCorsImplementation")]
     public class LoginController : ControllerBase
     {
         private readonly ILoginService _loginService;
@@ -20,6 +22,7 @@ namespace rescomac_back.Controllers
 
         [HttpPost("[action]/{email}/{password}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<bool>))]
+        [ProducesResponseType((int)HttpStatusCode.NotFound, Type = typeof(ApiResponse<bool>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<bool>))]
         public async Task<IActionResult> ValidarUsuario(string email, string password)
         {
@@ -40,7 +43,7 @@ namespace rescomac_back.Controllers
                 else
                 {
                     response.ReturnMessage = $"El usuario o contraseña es incorrecto.";
-                    return BadRequest(response);
+                    return NotFound(response);
                 }
             }
             catch (Exception ex)

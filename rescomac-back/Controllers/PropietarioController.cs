@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using rescomac_back.business.Interface;
 using rescomac_back.repository.Dto;
 using System.Net;
@@ -8,6 +9,7 @@ namespace rescomac_back.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyCorsImplementation")]
     public class PropietarioController : ControllerBase
     {
         private readonly IPropietarioService _propietarioService;

@@ -22,6 +22,11 @@ namespace rescomac_back
             services.AddDbContext<RescomacDbContext>(options =>
                options.UseSqlServer(defaultConnectionString));
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MyCorsImplementation", builder => builder.WithOrigins("*").WithHeaders("*"));
+            });
+
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IPropietarioService, PropietarioService>();
 
