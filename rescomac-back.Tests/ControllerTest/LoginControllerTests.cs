@@ -24,7 +24,7 @@ namespace rescomac_back.Tests.ControllerTest
 
         [Theory]
         [InlineData(1, 200)]
-        [InlineData(2, 400)]
+        [InlineData(2, 404)]
         [InlineData(3, 400)]
         public async Task ValidarUsuarioTest(int index, int expected)
         {
