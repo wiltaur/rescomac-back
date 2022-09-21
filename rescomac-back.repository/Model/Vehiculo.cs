@@ -7,7 +7,6 @@
         public int? Modelo { get; set; }
         public string? Color { get; set; }
         public bool EstadoParqueo { get; set; }
-        public bool EstadoPago { get; set; }
         public int Tipo { get; set; }
         public DateTime? FechaIngreso { get; set; }
         public DateTime? FechaSalida { get; set; }

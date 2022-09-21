@@ -1,4 +1,4 @@
-using rescomac_back.repository;
+using rescomac_back;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +21,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("MyCorsImplementation");
 
 app.UseAuthorization();
 

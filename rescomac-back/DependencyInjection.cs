@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using rescomac_back.business.Implement;
+using rescomac_back.business.Interface;
 using rescomac_back.repository.Context;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rescomac_back.repository
+namespace rescomac_back
 {
     [ExcludeFromCodeCoverage]
     public static class DependencyInjection
@@ -20,7 +22,13 @@ namespace rescomac_back.repository
             services.AddDbContext<RescomacDbContext>(options =>
                options.UseSqlServer(defaultConnectionString));
 
-            //services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MyCorsImplementation", builder => builder.WithOrigins("*").WithHeaders("*"));
+            });
+
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IPropietarioService, PropietarioService>();
 
             var serviceProvider = services.BuildServiceProvider();
             try
